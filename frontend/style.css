@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #faf8f5;
+    color: #1a1a1a;
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+}
+
+/* Fundo com textura suave */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 15% 15%, rgba(255, 182, 193, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 85% 80%, rgba(182, 213, 255, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(221, 182, 255, 0.1) 0%, transparent 60%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 70px 20px 50px;
+    position: relative;
+}
+
+.header-tag {
+    display: inline-block;
+    background: #ffe0ec;
+    color: #d4607a;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 99px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+    letter-spacing: -1px;
+}
+
+header h1 span {
+    color: #d4607a;
+}
+
+header p {
+    color: #999;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.last-updated {
+    margin-top: 12px;
+    font-size: 0.8rem;
+    color: #d4607a;
+    font-weight: 500;
+}
+
+.header-divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, #f4a7b9, #b6d5ff);
+    margin: 30px auto 0;
+    border-radius: 99px;
+}
+
+/* Main */
+main {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 0 24px;
+}
+
+#loading {
+    text-align: center;
+    font-size: 1rem;
+    color: #bbb;
+    padding: 80px;
+    font-weight: 300;
+}
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+/* Cards */
+.track-card {
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    position: relative;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+
+.track-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(212, 96, 122, 0.15);
+}
+
+.track-position-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(255,255,255,0.92);
+    color: #d4607a;
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    border-radius: 99px;
+    z-index: 3;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(212, 96, 122, 0.2);
+}
+
+.track-cover-wrapper {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1;
+}
+
+.track-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.track-card:hover .track-cover {
+    transform: scale(1.05);
+}
+
+.track-cover-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to top, rgba(255,255,255,0.9), transparent);
+    z-index: 1;
+}
+
+.track-info {
+    padding: 16px;
+}
+
+.track-name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #1a1a1a;
+}
+
+.track-artist {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #d4607a;
+    margin-bottom: 4px;
+}
+
+.track-album {
+    font-size: 0.75rem;
+    color: #bbb;
+    margin-bottom: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btn-spotify {
+    display: block;
+    text-align: center;
+    background: #f7f7f7;
+    color: #1a1a1a;
+    text-decoration: none;
+    padding: 9px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    transition: background 0.2s, color 0.2s;
+    border: 1px solid #eee;
+}
+
+.btn-spotify:hover {
+    background: #1db954;
+    color: white;
+    border-color: #1db954;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 50px;
+    color: #ccc;
+    font-size: 0.82rem;
+    font-weight: 300;
+}
+
+/* YouTube mini player */
+.yt-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 2;
+}
+
+.track-card:hover .yt-wrapper {
+    opacity: 1;
+}
+
+.yt-player {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.btn-sound {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(255,255,255,0.85);
+    border: none;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    z-index: 3;
+    transition: background 0.2s;
+    backdrop-filter: blur(4px);
+}
+
+.btn-sound:hover {
+    background: #f4a7b9;
+}

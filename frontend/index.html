@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-pop Chart Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-tag">✦ live charts</div>
+        <h1>K-pop <span>Chart</span> Tracker</h1>
+        <p>As músicas mais populares do momento</p>
+        <div class="last-updated" id="last-updated"></div>
+        <div class="header-divider"></div>
+    </header>
+
+    <main>
+        <div id="loading">Carregando charts...</div>
+        <div id="charts" class="charts-grid"></div>
+    </main>
+
+    <footer>
+        Feito com Spotify API + Python + FastAPI
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

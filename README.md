@@ -1,0 +1,1 @@
+Instalado fastapi uvicorn spotipy python-dotenv
