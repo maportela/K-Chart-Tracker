@@ -29,13 +29,13 @@ body::before {
     pointer-events: none;
 }
 
-/* Header */
 header {
     text-align: center;
     padding: 70px 20px 50px;
     position: relative;
 }
 
+/* Live charts */
 .header-tag {
     display: inline-block;
     background: #ffe0ec;
@@ -83,7 +83,6 @@ header p {
     border-radius: 99px;
 }
 
-/* Main */
 main {
     max-width: 1100px;
     margin: 50px auto;
@@ -104,7 +103,6 @@ main {
     gap: 20px;
 }
 
-/* Cards */
 .track-card {
     background: #ffffff;
     border-radius: 20px;
@@ -215,7 +213,6 @@ main {
     border-color: #1db954;
 }
 
-/* Footer */
 footer {
     text-align: center;
     padding: 50px;

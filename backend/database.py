@@ -1,8 +1,11 @@
+# Biblioteca nativa do Python pra banco de dados SQLite
 import sqlite3
 from datetime import datetime
 
+# Caminho do arquivo do banco de dados
 DB_PATH = "kpop_charts.db"
 
+# Cria a tabela de tracks se não existir
 def init_db():
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
@@ -25,6 +28,7 @@ def init_db():
     conn.commit()
     conn.close()
 
+# Salva uma lista de músicas no banco com timestamp
 def save_tracks(tracks):
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
@@ -50,10 +54,12 @@ def save_tracks(tracks):
     conn.commit()
     conn.close()
 
+# Retorna as músicas do chart mais recente salvo no banco
 def get_latest_tracks():
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
 
+    # Busca apenas os registros da última atualização
     cursor.execute("""
         SELECT * FROM tracks
         WHERE saved_at = (SELECT MAX(saved_at) FROM tracks)
@@ -63,6 +69,7 @@ def get_latest_tracks():
     rows = cursor.fetchall()
     conn.close()
 
+    # Converte as linhas do banco em dicionários
     tracks = []
     for row in rows:
         tracks.append({

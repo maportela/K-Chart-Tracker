@@ -1,5 +1,5 @@
 @echo off
-echo Iniciando K-pop Chart Tracker...
+echo Iniciando K-pop Chart Tracker
 
 start "Backend" cmd /k "cd /d %~dp0backend && python -m uvicorn main:app --reload"
 timeout /t 3

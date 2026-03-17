@@ -149,6 +149,6 @@ http://localhost:3000
  
 ---
  
-## Observações
+## Observação
  
 - A cota gratuita da YouTube Data API v3 é de **10.000 unidades por dia** e reseta à meia-noite (horário da Califórnia). Caso seja excedida, os M/Vs não carregarão até o reset.

@@ -1,10 +1,10 @@
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "http://127.0.0.1:8000"; // URL backend
 
-async function loadCharts() {
+async function loadCharts() { // Busca e exibe os charts
     const loading = document.getElementById("loading");
     const chartsDiv = document.getElementById("charts");
 
-    try {
+    try { // Chama o endpoint
         const response = await fetch(`${API_URL}/charts`);
         const data = await response.json();
 
@@ -17,7 +17,7 @@ async function loadCharts() {
             const card = document.createElement("div");
             card.classList.add("track-card");
 
-            const youtubeEmbed = track.youtube_id
+            const youtubeEmbed = track.youtube_id // Monta o mini player (se tiver youtube_id)
                 ? `<div class="yt-wrapper">
                         <iframe
                             class="yt-player"
@@ -30,7 +30,7 @@ async function loadCharts() {
                    </div>`
                 : "";
 
-            card.innerHTML = `
+            card.innerHTML = `      
                 <div class="track-position-badge">#${track.position}</div>
                 <div class="track-cover-wrapper">
                     <img class="track-cover" src="${track.cover}" alt="${track.name}">
@@ -46,7 +46,7 @@ async function loadCharts() {
                 </div>
             `;
 
-const videoSrc = track.youtube_id 
+const videoSrc = track.youtube_id // URL do vídeo pra carregar 
     ? `https://www.youtube.com/embed/${track.youtube_id}?autoplay=1&mute=1&controls=0&modestbranding=1&loop=1&playlist=${track.youtube_id}&enablejsapi=1`
     : null;
 

@@ -1,3 +1,4 @@
+# Bibliotecas conectadas com a API Spotify Web
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 from dotenv import load_dotenv
@@ -6,6 +7,7 @@ import os
 
 load_dotenv()
 
+# Cria e retorna o cliente autenticado do Spotify
 def get_spotify_client():
     client_id = os.getenv("SPOTIFY_CLIENT_ID")
     client_secret = os.getenv("SPOTIFY_CLIENT_SECRET")
@@ -17,9 +19,11 @@ def get_spotify_client():
 
     return spotipy.Spotify(auth_manager=auth_manager)
 
+# Busca músicas do gênero k-pop no Spotify e retorna lista ordenada por popularidade
 def get_kpop_charts():
     sp = get_spotify_client()
 
+    # Busca as músicas pelo termo "kpop"
     results = sp.search(
         q="kpop",
         type="track",
@@ -31,7 +35,7 @@ def get_kpop_charts():
         name = item.get("name", "")
         artist = item["artists"][0]["name"] if item.get("artists") else ""
 
-        # Busca o MV no YouTube
+        # Busca o M/V no YouTube
         youtube_id = get_mv_id(name, artist)
 
         track = {
@@ -47,8 +51,10 @@ def get_kpop_charts():
         }
         tracks.append(track)
 
+    # Ordena por popularidade (o maior sendo o primeiro)
     tracks.sort(key=lambda x: x["popularity"], reverse=True)
 
+    # Reajusta as posições após ordenar
     for i, track in enumerate(tracks):
         track["position"] = i + 1
 
