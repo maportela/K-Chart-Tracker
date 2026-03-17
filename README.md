@@ -66,22 +66,24 @@ Para cada música retornada pelo Spotify, o app faz uma busca automática no You
  
 ```
 kpop-chart-tracker/
-├── backend/
-│   ├── main.py          # API com FastAPI e endpoints
-│   ├── spotify.py       # Conexão e busca na Spotify Web API
-│   ├── youtube.py       # Busca de MVs na YouTube Data API
+├── assets/
+│   ├── demo.gif         # Prévia do site 
+├── backend/        
 │   ├── database.py      # Configuração e queries do SQLite
-│   └── scheduler.py     # Atualização automática a cada 1 hora
+│   ├── main.py          # API com FastAPI e endpoints
+│   ├── scheduler.py     # Atualização automática a cada 1 hora 
+│   ├── spotify.py       # Conexão e busca na API Spotify We
+│   └── youtube.py       # Busca de M/Vs na API YouTube Data
 ├── frontend/
-│   ├── index.html       # Estrutura da página
-│   ├── style.css        # Estilização
-│   └── script.js        # Lógica do frontend e mini player
-├── .env                 # Credenciais das APIs (não sobe pro GitHub)
+│   ├── index.html       # Estrutura da página       
+│   ├── style.css        # Estilo      
+│   └── script.js        # Lógica do frontend e mini player        
+├── .env                 # Credenciais das APIs (não está no GitHub)                 
 ├── .gitignore
-├── start.bat            # Inicia o projeto com dois cliques
+├── start.bat            # Iniciar o projeto com dois cliques            
 └── README.md
 ```
- 
+
 ---
 
 ## Como rodar o projeto
@@ -150,5 +152,3 @@ http://localhost:3000
 ## Observações
  
 - A cota gratuita da YouTube Data API v3 é de **10.000 unidades por dia** e reseta à meia-noite (horário da Califórnia). Caso seja excedida, os M/Vs não carregarão até o reset.
-- O índice de popularidade do Spotify pode retornar `0` para apps novos que ainda não passaram pela aprovação de **Extended Quota Mode** na plataforma.
- 
